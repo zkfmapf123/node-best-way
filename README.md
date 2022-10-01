@@ -1,79 +1,19 @@
-# Express-Inversify-Boiler-plate
+# Node-Best-Way
 
-## Description
+## Use Tech
 
-```
-    Server
-    - (master 기준) git switch feature/server
+- Nodejs Cluster
+- Master and Child Process
+- Production with PM2
+- Use Messaing Queue (RabbitMQ)
+- Use Cache (Redis)
+- Use NgingX Load Balance (reverse proxy)
 
-    Serverless
-    - (master 기준) git switch feature/serverless
-```
+## Desc
 
-- Express
-- Inversify
-- Decorator
-- Serialize
-- Jest
+> Nodejs Cluster
 
-## Settings
+- Nodejs는 Single Thread이기 때문에, 여려요청이 들어와도 한곳에서 한 Thread 안에서 처리를 진행하게 된다.
+- 만약, A 라는 작업이 20s초가 걸리는 작업이라면 서버는 A요청을 끝난 후 다른 B, C, D 작업을 처리하게 된다.
 
-```ts
-    // eslint
-    npm i eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser --save-dev
-```
-
-```ts
-    // babel
-    npm i @babel/cli @babel/core @babel/plugin-proposal-class-properties @babel/plugin-proposal-object-rest-spread @babel/plugin-transform-runtime @babel/preset-typescript @babel/preset-env babel-plugin-module-resolver @babel/plugin-proposal-decorators babel-plugin-parameter-decorator babel-plugin-inline-json-import
-```
-
-## Architecture
-
-###
-
-- index.ts -> Middlewares -> Controller -> Handler -> Service -> Repository
-
-> infra
-
-- Docker, Docker-Compose 외 운영
-
-> src/bases
-
-- Model, Enum, Type, Interface
-
-> src/configs
-
-- 환경변수...
-
-> src/controllers
-
-- Controller Layer
-
-> src/decorators
-
-- Deocreators
-
-> src/handlers
-
-- Handler Layer
-
-> src/middlewares
-
-- Middlwares
-
-> src/repositories
-
-- Repository Layer
-
-> src/utils
-
-- Utils 함수, Static Class로 관리됩니다.
-
-> src/helpers
-
-- Helper 함수
-
-> src/services
-
-- Services Layer
+## Issue
