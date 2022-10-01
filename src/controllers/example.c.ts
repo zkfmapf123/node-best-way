@@ -1,14 +1,16 @@
 import { Request, Response, Router } from 'express'
 import { IController } from '#bases/interfaces'
 import { Controller } from '#decorators/class'
+import { workers, WorkerType } from '#workers'
+import { messageBroker } from '#utils/message.broker'
 
 enum ExampleParams {
   EXAMPLE = '/ex',
-  GET = '/get',
+  GET = '/get/:data',
   SET = '/set',
 }
 
-@Controller(ExampleParams.EXAMPLE)
+// @Controller(ExampleParams.EXAMPLE)
 export class ExampleController implements IController {
   _prefix: string = ExampleParams.EXAMPLE
 
@@ -20,10 +22,26 @@ export class ExampleController implements IController {
   }
 
   /**
-   * @todo use Decorators
+   * @desc
+   * use child_process
+   */
+  // async getEx(req: Request, res: Response) {
+  //   const data = req.params.data
+
+  //   const workerMaps = workers.getChildProcess()
+  //   workerMaps.get(WorkerType.CALCULATOR)?.send(data)
+  //   workerMaps.get(WorkerType.BIG_WRITE)?.send(data)
+  //   res.send('leedonggyu')
+  // }
+
+  /**
+   * @desc
+   * use RabbitMQ (messaging Queue)
    */
   async getEx(req: Request, res: Response) {
-    console.log(req.body.data)
+    const data = req.params.data
+
+    messageBroker.sender('calculator', data)
     res.send('leedonggyu')
   }
 
