@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev-start": "npm run build && cross-env NODE_ENV=dev node ./dist/index.js",
     "prod-start": "npm run build && cross-env NODE_ENV=prod node ./dist/index.js",
-    "start-simple": "ts-node ./simple_server.ts"
+    "start-simple": "ts-node ./simple_server.ts",
+    "pm2-clsuter": "pm2 start ./cluster_index.ts"
   },
   "author": "",
   "license": "ISC",
@@ -19,7 +20,9 @@
     "@typescript-eslint/parser": "^5.38.0",
     "eslint": "^8.24.0",
     "nodemon": "^2.0.20",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
   },
   "dependencies": {
     "@babel/cli": "^7.18.10",
@@ -42,10 +45,9 @@
     "fp-ts": "^2.12.3",
     "helmet": "^6.0.0",
     "inversify": "^6.0.1",
+    "pm2": "^5.2.0",
     "reflect-metadata": "^0.1.13",
     "serializr": "^2.0.5",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.8.3",
     "wait": "^0.4.2"
   },
   "directories": {

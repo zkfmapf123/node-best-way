@@ -17,3 +17,9 @@
 - 만약, A 라는 작업이 20s초가 걸리는 작업이라면 서버는 A요청을 끝난 후 다른 B, C, D 작업을 처리하게 된다.
 
 ## Issue
+
+> pm2 Interpreter error
+
+```
+    ./node_modules/.bin/pm2 install typescript
+```
