@@ -5,7 +5,6 @@ import express, { Router } from 'express'
 import helmet from 'helmet'
 import cluster from 'cluster'
 import os from 'os'
-import { workers, WorkerType } from '#workers'
 
 class DkExpressApp {
   private app = express()
@@ -40,7 +39,7 @@ class DkExpressApp {
   /**
    * @todo use worker
    */
-  async start(port = 8080) {
+  async start(port = 8000) {
     if (cluster.isMaster) {
       // const workerMap = workers.getChildProcess()
       // console.log(`Child Process Role : ${WorkerType.CALCULATOR} ID is ${workerMap.get(WorkerType.CALCULATOR)?.pid}`)

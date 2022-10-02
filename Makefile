@@ -17,3 +17,13 @@ send:
 
 monit:
 	pm2 monit --watch
+
+## Docker
+build:
+	docker build -t node-best-way ./
+
+run-it:
+	docker run -it -p 8080:8080 --name node-server node-best-way 
+
+del-none-img:
+	docker rmi $(docker images -f "dangling=true" -q)
