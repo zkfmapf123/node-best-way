@@ -42,6 +42,7 @@ export class ExampleController implements IController {
     const data = req.params.data
 
     messageBroker.sender('calculator', data)
+    messageBroker.sender('bigWriter', data)
     res.send('leedonggyu')
   }
 

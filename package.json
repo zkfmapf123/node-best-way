@@ -11,7 +11,7 @@
     "prod-start": "npm run build && cross-env NODE_ENV=prod node ./dist/index.js",
     "start-simple": "ts-node ./simple_server.ts",
     "normal-server": "npm run build && cross-env NODE_ENV=dev node ./dist/index.js",
-    "pm2-dev-start": "pm2 kill && npm run build && cross-env NODE_ENV=dev pm2 start ./dist/index.js -i 6",
+    "pm2-dev-start": "pm2-runtime kill && npm run build && cross-env NODE_ENV=dev pm2 start ./dist/index.js -i 6",
     "pm2-prod-start": "pm2 kill && npm run build && cross-env NODE_ENV=prod pm2 start ./dist/index.js -i 6"
   },
   "author": "",

@@ -1,4 +1,5 @@
 import * as rq from 'amqplib/callback_api'
+import cluster from 'cluster'
 
 class MessageBroker {
   constructor() {
@@ -6,21 +7,21 @@ class MessageBroker {
   }
 
   private setup() {
-    console.log('Setting up RabbigMQ...')
+    console.log(`Setting up RabbigMQ...${cluster.worker?.process.pid}`)
 
-    try {
-      rq.connect(`amqp://localhost`, (err, conn) => {
-        conn.createChannel((err, chan) => {})
-      })
-    } catch (e) {
-      console.error(e)
-      process.exit(1)
-    }
+    // try {
+    //   rq.connect(`amqp://localhost`, (err, conn) => {
+    //     conn.createChannel((err, chan) => {})
+    //   })
+    // } catch (e) {
+    //   console.error(e)
+    //   process.exit(1)
+    // }
   }
 
   sender<T>(channel: string, data: T) {
     try {
-      rq.connect('amqp://localhost', (err, conn) => {
+      rq.connect('amqp://localhost:5672', (err, conn) => {
         // use logger
         if (err) throw new Error(err)
 
@@ -48,7 +49,7 @@ class MessageBroker {
 
   receive(channel: string) {
     try {
-      rq.connect('amqp://localhost', (err, conn) => {
+      rq.connect('amqp://localhost:5672', (err, conn) => {
         // use logger
         if (err) throw new Error(err)
 

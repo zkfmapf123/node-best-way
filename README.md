@@ -2,8 +2,8 @@
 
 ## Purpose
 
-- [ ] use RabbitMQ -> Message Broker
-- [ ] use NginX -> Load Balance
+- [x] use RabbitMQ -> Message Broker
+- [x] use NginX -> Load Balance
 
 ## Use Tech
 
@@ -34,6 +34,14 @@
 
 > RabbitMQ
 
+- 더 공부해야 할듯 너무 어렵스...
+
+> NginX
+
+- Reverse Proxy
+- Load Balance
+- Caching Server
+
 ```
     // use Docker
     install > docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 --restart=unless-stopped rabbitmq:management
@@ -42,7 +50,6 @@
 
     id : guest
     pw : guest
-
 ```
 
 ## Issue
@@ -51,4 +58,10 @@
 
 ```
     ./node_modules/.bin/pm2 install typescript
+```
+
+> pm2 runtime issue
+
+```
+    pm2-runtime ...
 ```
